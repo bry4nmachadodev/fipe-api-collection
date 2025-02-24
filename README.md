@@ -54,3 +54,23 @@ Caso tenha dúvidas ou sugestões, fique à vontade para contribuir com o projet
 
 📧 Email: bryanmachado1703@icloud.com 🐙 GitHub: bry4nmachadodev
 
+
+---------------------------------------------------------------------------------------------------------------
+
+
+📌 Project Overview
+This project aims to consume the FIPE API to retrieve vehicle price information, allowing users to check the value of a specific car based on its brand, model, and year.
+
+🔹 Main Features
+✅ API Consumption – The project integrates with the FIPE API, which provides data on Brazilian vehicles, including brands, models, and prices.
+✅ User Interaction – Users can select cars, motorcycles, or trucks, then choose a specific brand and model.
+✅ Year and Price Listing – After selecting a model, the system displays all available years along with their respective prices.
+✅ Technology Stack – Developed in Java, utilizing Spring Framework for application structure, along with streams and lists for efficient data handling.
+✅ Final Objective – Users can analyze average vehicle prices over the years, assisting in buying or selling decisions.
+
+🛠 Technologies Used
+Java ☕
+Spring Framework 🌱 (without Spring Web)
+JSON Processing 📄
+Object-Oriented Programming (OOP) 🏗
+
