@@ -2,16 +2,14 @@ package com.br.bryan.fipe_data_api.principal;
 
 import com.br.bryan.fipe_data_api.model.Dados;
 import com.br.bryan.fipe_data_api.model.Modelos;
+import com.br.bryan.fipe_data_api.model.Veiculo;
 import com.br.bryan.fipe_data_api.service.ConsumoApi;
 import com.br.bryan.fipe_data_api.service.ConverteDados;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.URL;
 import java.text.Normalizer;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Principal {
@@ -58,6 +56,7 @@ public class Principal {
             endereco = endereco + "/" + codigoMarca + "/modelos";
             json = consumo.obterDados(endereco);
             var modeloLista = conversor.obterDados(json, Modelos.class);
+
             System.out.println("Modelos dessa marca: " + modeloLista);
             modeloLista.modelos().stream()
                     .sorted(Comparator.comparing(Dados::codigo))
@@ -73,7 +72,23 @@ public class Principal {
             System.out.println("Modelos filtrados: ");
             modelosFiltrados.forEach(System.out::println);
 
+            System.out.print("Digite por favor o código do modelo para buscar os valores de avaliação: ");
+            var codigoModelo = leitura.nextLine();
 
+            endereco = endereco + "/" + codigoModelo + "/anos";
+            json = consumo.obterDados(endereco);
+            List<Dados> anos = conversor.obterLista(json, Dados.class);
+
+            List<Veiculo> veiculos = new ArrayList<>();
+            for (int i = 0; i < anos.size(); i++) {
+                var enderecoAnos = endereco + "/" + anos.get(i).codigo();
+                json = consumo.obterDados(enderecoAnos);
+                Veiculo veiculo = conversor.obterDados(json, Veiculo.class);
+                veiculos.add(veiculo);
+            }
+
+            System.out.println("Todos os veículos filtrados com avaliações por ano: ");
+            veiculos.forEach(System.out::println);
 
 
         }
