@@ -32,7 +32,7 @@ O sistema possibilita que o usuário visualize a variação de preços médios d
 
 Clone este repositório:
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/bry4nmachadodev/fipe-api-collection.git
 
 Abra o projeto em sua IDE de preferência.
 
